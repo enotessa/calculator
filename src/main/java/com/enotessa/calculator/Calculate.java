@@ -1,3 +1,7 @@
+package com.enotessa.calculator;
+
+import org.springframework.stereotype.Component;
+
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,6 +12,7 @@ import static java.lang.Math.sqrt;
 /**
  * class that calculate expression
  */
+@Component
 public class Calculate {
     private char ch;
     Stack<Double> numbers = new Stack<>();

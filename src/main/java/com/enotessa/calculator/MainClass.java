@@ -1,9 +1,19 @@
+package com.enotessa.calculator;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import java.util.Scanner;
 
 import static java.lang.System.out;
 
 public class MainClass {
+    static ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+    static Calculate calculate;
+
     public static void main(String[] args) {
+        calculate = ctx.getBean("calculate", Calculate.class);
         String str;
         for(;;) {
             out.println("1 : Ввести строку");
@@ -15,7 +25,7 @@ public class MainClass {
             switch(num){
                 case 1:
                     out.println("\n\n");
-                    Calculate calculate = new Calculate();
+
                     Scanner inn = new Scanner(System.in);
                     out.println("Введите строку :");
                     str=inn.nextLine();
